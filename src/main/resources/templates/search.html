@@ -28,17 +28,40 @@
 
         <p>
             <label for="searchTerm">Keyword:</label>
-            <input type="text" name="searchTerm" id="searchTerm" />
+            <input type="text" name="searchTerm" id="searchTerm"/>
         </p>
 
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search"/>
     </form>
 
-    <hr />
+    <hr/>
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-
 </div>
+<!--<div th:each="job : ${jobs}">-->
+<!--    <table class="job-listing">-->
+<!--    <tr th:text="${job}">-->
+<!--    </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<!--<div th:each="job : ${jobs}">-->
+<!--    <table class="job-listing">-->
+<!--    <tr th:each="column : ${columns}">-->
+<!--        <td th:text= "${column.value}"></td>-->
+<!--        <td th:text="${job.get(column.key)}"></td>-->
+<!--    </tr>-->
+<!--    </table>-->
+<!--</div>-->
+<div th:each="job : ${jobs}">
+    <table class="job-listing">
+    <tr th:each="jobKey : ${job.keySet()}">
+        <td th:text= "${#strings.capitalizeWords(jobKey)}"></td>
+        <td th:text="${job.get(jobKey)}"></td>
+    </tr>
+    </table>
+</div>
+
+
 
 </body>
 </html>

@@ -52,15 +52,16 @@
 <!--    </tr>-->
 <!--    </table>-->
 <!--</div>-->
-<div th:each="job : ${jobs}">
-    <table class="job-listing">
-    <tr th:each="jobKey : ${job.keySet()}">
-        <td th:text= "${#strings.capitalizeWords(jobKey)}"></td>
-        <td th:text="${job.get(jobKey)}"></td>
-    </tr>
-    </table>
+<div th:fragment="loop">
+    <div th:each="job : ${jobs}">
+        <table class="job-listing">
+        <tr th:each="jobKey : ${job.keySet()}">
+            <td th:text= "${#strings.capitalizeWords(jobKey)}"></td>
+            <td th:text="${job.get(jobKey)}"></td>
+        </tr>
+        </table>
+    </div>
 </div>
-
 
 
 </body>
